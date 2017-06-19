@@ -43,9 +43,8 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    height: 40px;
-    width: 40px;
-    margin: 30px auto;
+    height: 40%;
+    margin: 20px auto;
     &-right {
         background-image: url('../images/payment_methods/arrow_right.svg');
     }
@@ -72,7 +71,8 @@
         padding: 0;
     }
     .horizontal-tab {
-        height: 100px;
+        height: 65px;
+        border: 1px solid $fillColor;
         &:nth-child(2) {
             overflow: hidden;
         }
@@ -83,8 +83,13 @@
     .horizontal-tab.row {
         margin: 0;
     }
-    .scroll-right-button, .scroll-left-button {
-        border: 1px solid $fillColor;
+    .scroll-right-button {
+        border-top: none;
+        border-left: 1px solid $fillColor;
+    }
+    .scroll-left-button {
+        border-top: none;
+        border-right: 1px solid $fillColor;
         cursor: pointer;
         padding: 0;
     }
@@ -97,19 +102,15 @@
         padding: 0;
         li {
             cursor: pointer;
-            border-top: 1px solid $fillColor;
             border-left: 1px solid $fillColor;
             margin: 0;
             padding: 0;
-        }
-        li:last-child {
-            border-right: 1px solid $fillColor;
         }
         li.tab-selected {
             background-color: $fillColor;
         }
         .scrollable-tab-icon {
-            height: 70px;
+            height: 35px;
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
@@ -172,7 +173,7 @@
             flex-direction: column;
             li {
                 min-height: 60px;
-                box-sizing: border-box;
+                border-bottom: 1px solid $fillColor;
                 border-left: none;
             }
             .scrollable-tab-icon {
@@ -215,7 +216,6 @@
     }
     .payment-logo {
         height: 40px;
-        margin: auto 15px;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -244,8 +244,9 @@
         background-image: none;
         position: relative;
         padding: 10px 40px;
-        border: 1px solid $white;
+        border: 1px solid $fillColor;
         border-bottom: none;
+        margin-bottom: 1px;
         color: $primaryBrandColor;
         font-weight: bold;
         .ui-icon {
@@ -270,14 +271,15 @@
         }
 
     }
-    .ui-accordion-header-active {
+    h3.ui-accordion-header-active {
+        margin-bottom: 0px;
         background-color: $fillColor;
-        border-color: $fillColor;
         color: $darkPrimaryBrandColor;
     }
     .ui-widget-content {
         background-color: $fillColor;
         border-color: $fillColor;
         color: $black;
+        padding: 10px 40px;
     }
 }
