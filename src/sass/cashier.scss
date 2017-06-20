@@ -64,6 +64,7 @@
     }
 }
 
+// Payment methods scrollable tabs/contents
 #payment_methods {
     overflow: hidden;
     padding: 15px;
@@ -73,25 +74,27 @@
     .horizontal-tab {
         height: 65px;
         border: 1px solid $fillColor;
-        &:nth-child(2) {
-            overflow: hidden;
-        }
         .horizontal-tab-buttons {
+            overflow: hidden;
             padding: 0px;
         }
+        transition: width 0.5s;
     }
     .horizontal-tab.row {
         margin: 0;
     }
-    .scroll-right-button {
+    .scroll {
         border-top: none;
-        border-left: 1px solid $fillColor;
-    }
-    .scroll-left-button {
-        border-top: none;
-        border-right: 1px solid $fillColor;
         cursor: pointer;
         padding: 0;
+        &-right-button {
+            cursor: pointer;
+            border-left: 1px solid $fillColor;
+        }
+        &-left-button {
+            cursor: pointer;
+            border-right: 1px solid $fillColor;
+        }
     }
     ul {
         display: flex;
@@ -106,8 +109,9 @@
             margin: 0;
             padding: 0;
         }
-        li.tab-selected {
+        .tab-selected {
             background-color: $fillColor;
+            transition: 0.3s ease-in-out;
         }
         .scrollable-tab-icon {
             height: 35px;
@@ -153,69 +157,15 @@
     }
 }
 
-@media (max-width: 767px) {
-    #payment_methods {
-        .horizontal-tab {
-            height: 100%;
-            border: 1px solid $fillColor;
-        }
-        .scroll-left-button, .scroll-right-button {
-            border: none;
-        }
-        .scroll-left-button {
-            border-bottom: 1px solid $fillColor;
-        }
-        .scroll-right-button {
-            border-top: 1px solid $fillColor;
-        }
-        ul {
-            display: flex;
-            flex-direction: column;
-            li {
-                min-height: 60px;
-                border-bottom: 1px solid $fillColor;
-                border-left: none;
-            }
-            .scrollable-tab-icon {
-                height: 40px;
-                margin: 10px;
-            }
-        }
-        .tab-content {
-            overflow: hidden;
-        }
-        .tab-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            max-height: 410px;
-            div {
-                height: 100%;
-                width: 0;
-                padding: 5px;
-                p, ol li {
-                    font-size: 12px;
-                }
-                h4 {
-                    font-size: 14px;
-                }
-                ol {
-                    padding: 5px 20px;
-                }
-            }
-        }
-    }
-    p.hint {
-        font-size: 12px !important;
-    }
-}
-
 // Payment methods table
 #payment_methods_table {
     h3 {
         margin: 20px 0 0;
     }
     .payment-logo {
-        height: 40px;
+        height: 30px;
+        width: 55px;
+        margin: 0 auto;
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
@@ -225,7 +175,6 @@
     }
     thead {
         td {
-            padding: 20px 10px;
             text-align: center;
         }
     }
@@ -238,7 +187,7 @@
     }
 }
 
-// Custom styling on payment methods accordian
+// Payment methods accordian
 #payment_methods_accordian {
     h3.fx-accordian-header {
         background-image: none;
@@ -251,13 +200,13 @@
         font-weight: bold;
         .ui-icon {
             width: 8px;
-            height: 16px;
+            height: 12px;
             display: block;
             visibility: visible;
             background-size: contain;
             position: absolute;
-            top: 50%;
-            left: 1em;
+            top: 60%;
+            left: 16px;
         }
         .ui-arrow-up {
             background-image: url('../images/payment_methods/arrow_right.svg');
@@ -281,5 +230,83 @@
         border-color: $fillColor;
         color: $black;
         padding: 10px 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    #payment_methods {
+        .horizontal-tab {
+            height: 100%;
+            border: 1px solid $fillColor;
+        }
+        .scroll-left-button, .scroll-right-button {
+            &.scroll-left-button {
+                border-right: none;
+                border-bottom: 1px solid $fillColor;
+            }
+            &.scroll-right-button {
+                border-left: none;
+                border-top: 1px solid $fillColor;
+            }
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            li {
+                min-height: 60px;
+                border-bottom: 1px solid $fillColor;
+                border-left: none;
+            }
+            .scrollable-tab-icon {
+                height: 47px;
+                width: 78px;
+                margin: 5px auto;
+            }
+        }
+        .tab-content {
+            overflow: hidden;
+        }
+        .tab-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            max-height: 420px;
+            div {
+                height: 100%;
+                width: 0;
+                padding: 5px;
+                p, ol li {
+                    font-size: 12px;
+                }
+                h4 {
+                    font-size: 14px;
+                }
+                ol {
+                    padding: 5px 20px;
+                }
+            }
+        }
+    }
+    p.hint {
+        font-size: 12px !important;
+    }
+    #payment_methods_accordian {
+        h3.fx-accordian-header {
+            font-size: 14px;
+        }
+        .ui-widget-content {
+            font-size: 12px;
+        }
+    }
+    #payment_methods_table {
+        thead {
+            td {
+                font-size: 14px;
+            }
+        }
+        tbody {
+            td {
+                font-size: 12px;
+            }
+        }
     }
 }
